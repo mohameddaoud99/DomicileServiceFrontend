@@ -55,8 +55,6 @@ export class AppMainComponent {
 
     configActive: boolean;
 
-    configClick: boolean;
-
     constructor(public renderer: Renderer2, private menuService: MenuService,
                 private primengConfig: PrimeNGConfig, public app: AppComponent) {}
 
@@ -90,11 +88,6 @@ export class AppMainComponent {
             this.menuHoverActive = false;
         }
 
-        if (this.configActive && !this.configClick) {
-            this.configActive = false;
-        }
-
-        this.configClick = false;
         this.menuClick = false;
         this.topbarItemClick = false;
         this.megaMenuClick = false;
@@ -175,10 +168,6 @@ export class AppMainComponent {
     onToggleMenuClick(event: Event) {
         this.staticMenuActive = !this.staticMenuActive;
         event.preventDefault();
-    }
-
-    onConfigClick(event) {
-        this.configClick = true;
     }
 
     onRippleChange(event) {
