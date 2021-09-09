@@ -23,7 +23,7 @@ export class WidgetsComponent implements OnInit {
             { label: 'Widgets', routerLink: ['/utilities/widgets'] }
         ]);
     }
-    
+
     ngOnInit() {
         this.lineChartData = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -35,7 +35,8 @@ export class WidgetsComponent implements OnInit {
                         '#45b0d5'
                     ],
                     borderWidth: 3,
-                    fill: false
+                    fill: false,
+                    tension: .4
                 },
                 {
                     label: 'Roma',
@@ -44,7 +45,8 @@ export class WidgetsComponent implements OnInit {
                         '#d08770'
                     ],
                     borderWidth: 3,
-                    fill: false
+                    fill: false,
+                    tension: .4
                 }
             ]
         };
@@ -56,27 +58,29 @@ export class WidgetsComponent implements OnInit {
                 mode: 'index'
             },
             scales: {
-                xAxes: [{
-                    gridLines: {
+                x: {
+                    grid: {
                         display: false
                     },
                     ticks: {
-                        fontColor: '#9199a9'
+                        color: '#9199a9'
                     }
-                }],
-                yAxes: [{
-                    gridLines: {
+                },
+                y: {
+                    grid: {
                         display: false
                     },
                     ticks: {
-                        fontColor: '#9199a9'
+                        color: '#9199a9'
                     }
-                }]
+                }
             },
-            legend: {
-                display: true,
-                labels: {
-                    fontColor: '#9199a9'
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        color: '#9199a9'
+                    }
                 }
             }
         };
