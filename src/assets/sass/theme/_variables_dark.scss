@@ -336,6 +336,7 @@ $inputSwitchSliderOnHoverBg:$primaryColor;
 $inputSwitchHandleOnBg:$primaryTextColor;
 
 //panel
+$panelHeaderBorderColor: $shade600 !default;
 $panelHeaderBorder:1px solid $shade600;
 $panelHeaderBg:$shade800;
 $panelHeaderTextColor:$shade000;
@@ -347,6 +348,7 @@ $panelHeaderHoverBg:$hoverBg;
 $panelHeaderHoverBorderColor:$shade600;
 $panelHeaderTextHoverColor:$shade000;
 
+$panelContentBorderColor: $shade600 !default;
 $panelContentBorder:1px solid $shade600;
 $panelContentBg:$shade800;
 $panelContentTextColor:$shade000;
@@ -523,6 +525,7 @@ $pickListBreakpoint:769px;
 
 //schedule
 $fullCalendarEventBg:$primaryDarkColor;
+$fullCalendarEventBorderColor:$primaryDarkColor !default;
 $fullCalendarEventBorder:1px solid $primaryDarkColor;
 $fullCalendarEventTextColor:$primaryTextColor;
 
@@ -779,6 +782,29 @@ $skeletonAnimationBg:rgba(255,255,255,.04);
 //splitter
 $splitterGutterBg:rgba(255,255,255,.04);
 $splitterGutterHandleBg:$shade600;
+
+//speeddial
+$speedDialButtonWidth: 4rem !default;
+$speedDialButtonHeight: 4rem !default;
+$speedDialButtonIconFontSize: 1.3rem !default;
+$speedDialActionWidth: 3rem !default;
+$speedDialActionHeight: 3rem !default;
+$speedDialActionBg: $shade700 !default;
+$speedDialActionHoverBg: $shade600 !default;
+$speedDialActionTextColor: #fff !default;
+$speedDialActionTextHoverColor: #fff !default;
+
+//dock
+$dockActionWidth: 4rem !default;
+$dockActionHeight: 4rem !default;
+$dockItemPadding: .5rem !default;
+$dockCurrentItemMargin: 1.5rem !default;
+$dockFirstItemsMargin: 1.3rem !default;
+$dockSecondItemsMargin: 0.9rem !default;
+$dockBg: rgba(255,255,255,.1) !default;
+$dockBorder: 1px solid rgba(255,255,255,0.2) !default;
+$dockPadding: .5rem .5rem !default;
+$dockBorderRadius: .5rem !default;
 
 :root {
     --surface-a:#{$shade800};
