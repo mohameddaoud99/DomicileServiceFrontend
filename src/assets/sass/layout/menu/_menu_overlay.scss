@@ -69,6 +69,7 @@
                     > a {
                         i.layout-submenu-toggler {
                             @include rotate(-180deg);
+                            margin-top: -1rem;
                         }
                     }
                 }
