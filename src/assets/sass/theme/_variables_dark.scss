@@ -237,6 +237,7 @@ $radiobuttonActiveHoverBorderColor:$primaryDarkerColor;
 $colorPickerPreviewWidth:2rem;
 $colorPickerPreviewHeight:2rem;
 $colorPickerBg:$shade800;
+$colorPickerBorder:1px solid #191919 !default;
 $colorPickerBorderColor:$shade600;
 $colorPickerHandleColor:$shade000;
 
@@ -301,6 +302,7 @@ $calendarHeaderBorder:1px solid $shade600;
 $calendarHeaderTextColor:$shade000;
 $calendarHeaderFontWeight:600;
 $calendarHeaderCellPadding:.5rem;
+$calendarMonthYearHeaderHoverTextColor: $primaryColor !default;
 
 $calendarCellDatePadding:.5rem;
 $calendarCellDateWidth:2.5rem;
@@ -631,6 +633,7 @@ $progressBarHeight:1.5rem;
 $progressBarBorder:0 none;
 $progressBarBg:$shade600;
 $progressBarValueBg:$primaryColor;
+$progressBarValueTextColor:$primaryTextColor !default;
 
 //menu (e.g. menu, menubar, tieredmenu)
 $menuWidth:12.5rem;
