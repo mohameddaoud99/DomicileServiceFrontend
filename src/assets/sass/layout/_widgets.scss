@@ -274,12 +274,12 @@
         width: 100%;
         margin: 12px 0;
 
-        > .p-grid {
-            > .p-col-1 {
+        > .grid {
+            > .col-1 {
                 width: 40px;
             }
 
-            > .p-col-11 {
+            > .col-11 {
                 width: calc(100% - 40px);
                 padding-left: 1em;
             }
