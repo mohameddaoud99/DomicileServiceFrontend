@@ -367,4 +367,10 @@ export class AppConfigComponent implements OnInit {
     isIE() {
         return /(MSIE|Trident\/|Edge\/)/i.test(window.navigator.userAgent);
     }
+
+    ngOnDestroy() {
+        if(this.subscription) {
+            this.subscription.unsubscribe();
+        }
+    }
 }
