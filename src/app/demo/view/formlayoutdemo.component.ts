@@ -6,13 +6,6 @@ import {BreadcrumbService} from '../../breadcrumb.service';
 })
 export class FormLayoutDemoComponent {
 
-    constructor(private breadcrumbService: BreadcrumbService) {
-        this.breadcrumbService.setItems([
-            { label: 'UI Kit' },
-            { label: 'Form Layout', routerLink: ['/uikit/formlayout'] }
-        ]);
-    }
-
     selectedState: any = null;
 
     states: any[] = [
@@ -23,6 +16,12 @@ export class FormLayoutDemoComponent {
         {name: 'Washington', code: 'Washington'}
     ];
 
+    dropdownItems = [
+        { name: 'Option 1', code: 'Option 1' },
+        { name: 'Option 2', code: 'Option 2' },
+        { name: 'Option 3', code: 'Option 3' }
+    ];
+
     cities1: any[] = [];
 
     cities2: any[] = [];
@@ -30,4 +29,11 @@ export class FormLayoutDemoComponent {
     city1: any = null;
 
     city2: any = null;
+    
+    constructor(private breadcrumbService: BreadcrumbService) {
+        this.breadcrumbService.setItems([
+            { label: 'UI Kit' },
+            { label: 'Form Layout', routerLink: ['/uikit/formlayout'] }
+        ]);
+    }
 }

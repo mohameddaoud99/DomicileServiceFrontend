@@ -2,7 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {AppComponent} from './app.component';
 import {AppMainComponent} from './app.main.component';
-
+import {ConfigService} from './demo/service/app.config.service';
+import {AppConfig} from './demo/domain/appconfig';
+import {Subscription} from 'rxjs';
 @Component({
     selector: 'app-config',
     template: `
@@ -131,15 +133,31 @@ import {AppMainComponent} from './app.main.component';
     ]
 })
 export class AppConfigComponent implements OnInit {
+
     darkColors: any;
+    
     lightColors: any;
+    
     customColors: any;
+    
     menuColors: any;
+    
     selectedColorOptions: any;
+    
     componentThemes: any;
-    constructor(public app: AppComponent, public appMain: AppMainComponent) {}
+
+    subscription: Subscription;
+
+    config: AppConfig;
+    
+    constructor(public app: AppComponent, public appMain: AppMainComponent, public configService: ConfigService) {}
 
     ngOnInit() {
+        this.config = this.configService.config;
+        this.subscription = this.configService.configUpdate$.subscribe(config => {
+            this.config = config;
+        });
+
         this.lightColors = [
             {name: 'Blue', file: 'blue', image: 'blue.svg'},
             {name: 'Green', file: 'green', image: 'green.svg'},
@@ -230,8 +248,10 @@ export class AppConfigComponent implements OnInit {
             {name: 'Indigo', file: 'indigo', image: 'indigo.svg'},
         ];
     }
+
     changeLayout(event, mode) {
         this.app.darkMode = mode;
+
         if (mode === true) {
             this.app.menuColorMode = 'dark';
             this.app.menuColor = 'layout-menu-dark';
@@ -247,8 +267,10 @@ export class AppConfigComponent implements OnInit {
             this.changeLightDarkLayout('layout-css', this.selectedColorOptions[0].file, 'layout-light');
             this.changeLightDarkTheme('theme-css', 'theme-light');
         }
+        this.configService.updateConfig({...this.config, ...{dark: mode}});
         event.preventDefault();
     }
+
     changeLightDarkTheme(id, value) {
         const element = document.getElementById(id);
         const urlTokens = element.getAttribute('href').split('/');
@@ -256,6 +278,7 @@ export class AppConfigComponent implements OnInit {
         const newURL = urlTokens.join('/');
         this.replaceLink(element, newURL);
     }
+
     changeLightDarkLayout(id, color, mode) {
         const element = document.getElementById(id);
         const urlTokens = element.getAttribute('href').split('/');
@@ -264,10 +287,12 @@ export class AppConfigComponent implements OnInit {
         const newURL = urlTokens.join('/');
         this.replaceLink(element, newURL);
     }
+
     changeMenuToHorizontal(event, mode) {
         this.app.horizontalMenu = mode;
         event.preventDefault();
     }
+
     changeMenuColor(event, mode) {
         this.app.menuColorMode = mode;
         if (mode !== 'custom') {
@@ -287,6 +312,7 @@ export class AppConfigComponent implements OnInit {
         }
         event.preventDefault();
     }
+
     changeMenuTheme(event, color) {
         if (this.app.menuColorMode !== 'custom') {
             this.changeStyleSheetsColor('layout-css', color);
@@ -296,11 +322,13 @@ export class AppConfigComponent implements OnInit {
         }
         event.preventDefault();
     }
+
     changeComponentTheme(event, color) {
         this.app.themeColor = color;
         this.changeStyleSheetsColor('theme-css', color);
         event.preventDefault();
     }
+
     changeStyleSheetsColor(id, value) {
         const element = document.getElementById(id);
         const urlTokens = element.getAttribute('href').split('/');
@@ -308,14 +336,17 @@ export class AppConfigComponent implements OnInit {
         const newURL = urlTokens.join('/');
         this.replaceLink(element, newURL);
     }
+
     onConfigButtonClick(event) {
         this.appMain.configActive = true;
         event.preventDefault();
     }
+
     onConfigCloseClick(event) {
         this.appMain.configActive = false;
         event.preventDefault();
     }
+
     replaceLink(linkElement, href) {
         if (this.isIE()) {
             linkElement.setAttribute('href', href);
@@ -332,6 +363,7 @@ export class AppConfigComponent implements OnInit {
             });
         }
     }
+
     isIE() {
         return /(MSIE|Trident\/|Edge\/)/i.test(window.navigator.userAgent);
     }

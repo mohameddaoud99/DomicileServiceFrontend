@@ -3,11 +3,16 @@ import {SelectItem} from 'primeng/api';
 import {BreadcrumbService} from '../../breadcrumb.service';
 import {ProductService} from '../service/productservice';
 import {Product} from '../domain/product';
+import {AppConfig} from '../domain/appconfig';
+import {ConfigService} from '../service/app.config.service';
+import {Subscription} from 'rxjs';
 
 @Component({
-    templateUrl: './dashboard.component.html'
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['../../../assets/demo/badges.scss']
 })
 export class DashboardDemoComponent implements OnInit {
+
     lineChartData: any;
 
     lineChartOptions: any;
@@ -26,10 +31,22 @@ export class DashboardDemoComponent implements OnInit {
 
     events: any[];
 
-    constructor(private productService: ProductService, private breadcrumbService: BreadcrumbService) {
+    subscription: Subscription;
+
+    config: AppConfig;
+
+    constructor(private productService: ProductService, private breadcrumbService: BreadcrumbService, public configService: ConfigService) {
       this.breadcrumbService.setItems([
           {label: 'Dashboard', routerLink: ['/']}
-      ]); }
+      ]); 
+    
+
+      this.config = this.configService.config;
+      this.subscription = this.configService.configUpdate$.subscribe(config => {
+          this.config = config;
+          this.updateChartOptions();
+      });
+    }
 
     ngOnInit() {
         this.productService.getProducts().then(data => this.products = data);
@@ -102,5 +119,76 @@ export class DashboardDemoComponent implements OnInit {
             {label: '2015', value: 2015},
             {label: '2014', value: 2014}
         ];
+    }
+    updateChartOptions() {
+        if (this.config.dark)
+            this.applyDarkTheme();
+        else
+            this.applyLightTheme();
+
+    }
+
+    applyDarkTheme() {
+        this.lineChartOptions = {
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#ebedef'
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: '#ebedef'
+                    },
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: '#ebedef'
+                    },
+                    grid: {
+                        display: false
+                    }
+                },
+            }
+        };
+    }
+
+    applyLightTheme() {
+            this.lineChartOptions = {
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#495057'
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: '#495057'
+                    },
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: '#495057'
+                    },
+                    grid: {
+                        display: false
+                    }
+                },
+            }
+        };
+    }
+
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
     }
 }

@@ -119,7 +119,7 @@ import {TreeDemoComponent} from './demo/view/treedemo.component';
 import {PanelsDemoComponent} from './demo/view/panelsdemo.component';
 import {OverlaysDemoComponent} from './demo/view/overlaysdemo.component';
 import {MediaDemoComponent} from './demo/view/mediademo.component';
-import {MenusDemoComponent} from './demo/view/menusdemo.component';
+import {MenusComponent} from './demo/view/menus/menus.component';
 import {MessagesDemoComponent} from './demo/view/messagesdemo.component';
 import {MiscDemoComponent} from './demo/view/miscdemo.component';
 import {EmptyDemoComponent} from './demo/view/emptydemo.component';
@@ -138,6 +138,7 @@ import {CustomerService} from './demo/service/customerservice';
 import {PhotoService} from './demo/service/photoservice';
 import {ProductService} from './demo/service/productservice';
 import {IconService} from './demo/service/iconservice';
+import {ConfigService} from './demo/service/app.config.service';
 
 // Application services
 import {BreadcrumbService} from './breadcrumb.service';
@@ -272,7 +273,7 @@ FullCalendarModule.registerPlugins([
         PanelsDemoComponent,
         OverlaysDemoComponent,
         MediaDemoComponent,
-        MenusDemoComponent,
+        MenusComponent,
         MessagesDemoComponent,
         MessagesDemoComponent,
         MiscDemoComponent,
@@ -287,7 +288,7 @@ FullCalendarModule.registerPlugins([
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
         CountryService, CustomerService, EventService, IconService, NodeService,
-        PhotoService, ProductService, MenuService, BreadcrumbService
+        PhotoService, ProductService, MenuService, BreadcrumbService, ConfigService
     ],
     bootstrap: [AppComponent]
 })

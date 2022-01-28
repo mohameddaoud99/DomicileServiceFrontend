@@ -1075,12 +1075,11 @@
     <div class="col-12 lg:col-8">
         <div class="card orders-table">
             <h5>Orders Table</h5>
-            <p-table [value]="products" [paginator]="true" [rows]="5">
+            <p-table [value]="products" [paginator]="true" [rows]="5" styleClass="p-datatable-customers">
                 <ng-template pTemplate="header">
                     <tr>
-                        <th>Logo</th>
-                        <th pSortableColumn="name">Name
-                            <p-sortIcon field="name"></p-sortIcon>
+                        <th pSortableColumn="id">ID
+                            <p-sortIcon field="id"></p-sortIcon>
                         </th>
                         <th pSortableColumn="category">Category
                             <p-sortIcon field="category"></p-sortIcon>
@@ -1088,20 +1087,29 @@
                         <th pSortableColumn="price">Price
                             <p-sortIcon field="price"></p-sortIcon>
                         </th>
-                        <th>View</th>
+                        <th pSortableColumn="inventoryStatus">Status
+                            <p-sortIcon field="inventoryStatus"></p-sortIcon>
+                        </th>
+                        <th></th>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-product>
                     <tr>
-                        <td>
-                            <img [src]="'assets/demo/images/product/' + product.image" [alt]="product.image" width="50px" />
+                        <td style="width:70px;">
+                            <span class="p-column-title">Id</span>
+                            {{product.id}}</td>
+                        <td style="width:200px;">
+                            <span class="p-column-title">Category</span>
+                            {{product.category}}</td>
+                        <td style="width:200px;">
+                            <span class="p-column-title">Price</span>
+                            {{product.price | currency:'USD'}}</td>
+                        <td style="width:150px;">
+                            <span class="p-column-title">Status</span>
+                            <span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
                         </td>
-                        <td>{{product.name}}</td>
-                        <td>{{product.category}}</td>
-                        <td>{{product.price | currency:'USD'}}</td>
-                        <td>
-                            <button pButton type="button" icon="pi pi-search" class="p-button-success mr-2 mb-1"></button>
-                            <button pButton type="button" icon="pi pi-times" class="p-button-danger mb-1"></button>
+                        <td style="width:100px;" class="text-center">
+                            <button pButton type="button" icon="pi pi-search"></button>
                         </td>
                     </tr>
                 </ng-template>
