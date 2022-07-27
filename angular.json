@@ -34,9 +34,12 @@
                         ],
                         "scripts": [
                             "node_modules/prismjs/prism.js",
-                            "node_modules/prismjs/components/prism-typescript.js"
-                        ],
-                        "allowedCommonJsDependencies": ["@fullcalendar/daygrid","@fullcalendar/timegrid","@fullcalendar/interaction","chart.js"]
+                            "node_modules/prismjs/components/prism-typescript.js",
+                            "./node_modules/@fullcalendar/common/main.css",
+                            "./node_modules/@fullcalendar/daygrid/main.css",
+                            "./node_modules/@fullcalendar/timegrid/main.css"
+                        ]
+                        
                     },
                     "configurations": {
                         "production": {
@@ -126,5 +129,8 @@
             }
         }
     },
-    "defaultProject": "mirage"
+    "defaultProject": "mirage",
+    "cli": {
+      "analytics": "642862f5-e7b4-4d74-8e02-29362cf4113a"
+    }
 }
