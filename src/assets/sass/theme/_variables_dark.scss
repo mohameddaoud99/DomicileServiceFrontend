@@ -10,7 +10,6 @@ $colors: (
     "bluegray": #607D8B,
     "purple": #9C27B0,
     "primary": $primaryColor
-
 ) !default;
 
 //shades
@@ -355,6 +354,7 @@ $panelHeaderTextHoverColor:$shade000;
 $panelContentBorderColor: $shade600 !default;
 $panelContentBorder:1px solid $shade600;
 $panelContentBg:$shade800;
+$panelContentEvenRowBg:rgba(255,255,255,0.01) !default;
 $panelContentTextColor:$shade000;
 $panelContentPadding:1.25rem;
 

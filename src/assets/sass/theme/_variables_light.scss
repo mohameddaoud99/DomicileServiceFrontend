@@ -354,6 +354,7 @@ $panelHeaderTextHoverColor:$shade900;
 $panelContentBorderColor: $shade300 !default;
 $panelContentBorder:1px solid $shade300;
 $panelContentBg:$shade000;
+$panelContentEvenRowBg:scale-color($panelContentBg, $lightness: -1%) !default;
 $panelContentTextColor:$shade900;
 $panelContentPadding:1.25rem;
 
