@@ -31,13 +31,42 @@ import {AppCalendarComponent} from './pages/app.calendar.component';
 import {AppTimelineDemoComponent} from './pages/app.timelinedemo.component';
 import {BlocksComponent} from './blocks/blocks/blocks.component';
 
+
+
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { AppHowItWorksComponent } from './components/app-how-it-works/app-how-it-works.component';
+import { ServicesComponent } from './components/services/services.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { LogindemandeurComponent } from './components/logindemandeur/logindemandeur.component';
+import { InscriptionComponent } from './components/inscription/inscription.component';
+
+import { AccepteComponent } from './components/Reparateur/DemandeService/accepte/accepte.component';
+import { RefuserComponent } from './components/Reparateur/DemandeService/refuser/refuser.component';
+import { EnattenteComponent } from './components/Reparateur/DemandeService/enattente/enattente.component';
+import { DemanderaparateurComponent } from './components/demanderaparateur/demanderaparateur.component';
+import { ReparateurDetailsComponent } from './components/reparateur-details/reparateur-details.component';
+import { DemandeServiceComponent } from './components/demande-service/demande-service.component';
+
+
+
+import { LoginReparateurComponent } from './components/Reparateur/login-reparateur/login-reparateur.component';
+import { CreercompteComponent } from './components/Reparateur/creercompte/creercompte.component';
+import { EvaluationserviceComponent } from './components/Reparateur/evaluationservice/evaluationservice.component';
+import { ListeContactComponent } from './components/Reparateur/liste-contact/liste-contact.component'; 
+import { HistoriqueServiceComponent } from './components/historique-service/historique-service.component'; 
+
+
+
 @NgModule({
     imports: [
         RouterModule.forRoot([
             {
                 path: '', component: AppMainComponent,
                 children: [
-                    {path: '', component: DashboardDemoComponent},
+
+
+                    
                     {path: 'uikit/formlayout', component: FormLayoutDemoComponent},
                     {path: 'uikit/floatlabel', component: FloatLabelDemoComponent},
                     {path: 'uikit/invalidstate', component: InvalidStateDemoComponent},
@@ -63,13 +92,40 @@ import {BlocksComponent} from './blocks/blocks/blocks.component';
                     {path: 'components/file', component: FileDemoComponent},
                     {path: 'documentation', component: DocumentationComponent},
                     {path: 'blocks', component: BlocksComponent},
+
+                    {path: 'demandeservice/accepte', component: AccepteComponent},
+                    {path: 'demandeservice/refuser', component: RefuserComponent},
+                    {path: 'demandeservice/enattente', component: EnattenteComponent},
+                    {path: 'demandeservice/Evaluation', component: EvaluationserviceComponent},
+                    {path: 'ListContacts', component: ListeContactComponent},
                 ]
             },
+
+            {path: 'CreerCompteReparateur', component: CreercompteComponent},
+            {path: 'loginReparateur', component: LoginReparateurComponent},
+            {path: 'site/DemandeService/:id', component: DemandeServiceComponent },
+            {path: 'site/reparateurs/:id', component: DemanderaparateurComponent },
+            {path: 'site/ReparateurDetails/:id', component: ReparateurDetailsComponent },
+            {path: 'site/home', component: HomeComponent},
+            {path: 'site/about', component: AboutComponent},
+            {path: 'site/how-it-works', component: AppHowItWorksComponent},
+            {path: 'site/services', component: ServicesComponent},
+            {path: 'site/contact/:id', component: ContactComponent},
+            {path: 'site/loginDemandeur', component: LogindemandeurComponent},
+            {path: 'site/signup', component: InscriptionComponent},
+            {path: 'site/HistoriqueServices', component: HistoriqueServiceComponent},
+
             {path: 'error', component: AppErrorComponent},
             {path: 'accessdenied', component: AppAccessdeniedComponent},
             {path: 'notfound', component: AppNotfoundComponent},
             {path: 'login', component: AppLoginComponent},
             {path: '**', redirectTo: '/notfound'},
+            {path: '', component: LoginReparateurComponent},
+
+
+          
+
+
         ], {scrollPositionRestoration: 'enabled'})
     ],
     exports: [RouterModule]

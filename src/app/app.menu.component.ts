@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+/*import { Component, OnInit } from '@angular/core';
 import { AppMainComponent } from './app.main.component';
 
 @Component({
@@ -118,3 +118,53 @@ export class AppMenuComponent implements OnInit {
         this.appMain.menuClick = true;
     }
 }
+*/
+import { Component, OnInit } from '@angular/core';
+import { AppMainComponent } from './app.main.component';
+
+@Component({
+    selector: 'app-menu',
+    templateUrl: './app.menu.component.html'
+})
+export class AppMenuComponent implements OnInit {
+
+    model: any[];
+
+    constructor(public appMain: AppMainComponent) {}
+
+    ngOnInit() {
+        this.model = [
+            {label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/']},
+       
+            {
+                label: 'Demande services', icon: 'pi pi-comments',
+                items: [
+                    {label: 'En attente', icon: 'pi pi-bell', routerLink: ['/demandeservice/enattente']},
+                    {label: 'Acceptés', icon: 'pi pi-fw pi-check-square', routerLink: ['/demandeservice/accepte']},
+                    {label: 'Refusés', icon: 'pi pi-fw pi-times', routerLink: ['/demandeservice/refuser']},
+                   
+                ]
+            },
+
+                     
+            {
+                label: 'Evaluation', icon: 'pi pi-star-fill', routerLink: ['/demandeservice/Evaluation']
+            },
+            {
+                label: 'Liste des contacts', icon: 'pi pi-star-fill', routerLink: ['/ListContacts']
+            },
+            {
+                label: 'Déconnexion', icon: 'pi pi-sign-out', routerLink: ['/loginReparateur'],command: () => this.logout()
+            },
+        ];
+    }
+
+    onMenuClick() {
+        this.appMain.menuClick = true;
+    }
+
+    logout() {
+        localStorage.clear();
+      }
+}
+//  

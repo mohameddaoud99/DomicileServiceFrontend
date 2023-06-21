@@ -149,6 +149,31 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { FooterprojectComponent } from './components/footerproject/footerproject.component';
+import { AboutComponent } from './components/about/about.component';
+import { AppHowItWorksComponent } from './components/app-how-it-works/app-how-it-works.component';
+import { ServicesComponent } from './components/services/services.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { LogindemandeurComponent } from './components/logindemandeur/logindemandeur.component';
+import { InscriptionComponent } from './components/inscription/inscription.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { AccepteComponent } from './components/Reparateur/DemandeService/accepte/accepte.component';
+import { RefuserComponent } from './components/Reparateur/DemandeService/refuser/refuser.component';
+import { EnattenteComponent } from './components/Reparateur/DemandeService/enattente/enattente.component';
+import { DemanderaparateurComponent } from './components/demanderaparateur/demanderaparateur.component';
+import { ReparateurDetailsComponent } from './components/reparateur-details/reparateur-details.component';
+import { DemandeServiceComponent } from './components/demande-service/demande-service.component';
+import { LoginReparateurComponent } from './components/Reparateur/login-reparateur/login-reparateur.component';
+import { CreercompteComponent } from './components/Reparateur/creercompte/creercompte.component';
+import { EvaluationserviceComponent } from './components/Reparateur/evaluationservice/evaluationservice.component';
+import { ListeContactComponent } from './components/Reparateur/liste-contact/liste-contact.component'; 
+import { HistoriqueServiceComponent } from './components/historique-service/historique-service.component'; 
+
+
+
 FullCalendarModule.registerPlugins([
     dayGridPlugin,
     timeGridPlugin,
@@ -157,6 +182,7 @@ FullCalendarModule.registerPlugins([
 
 @NgModule({
     imports: [
+        ReactiveFormsModule,
         BrowserModule,
         FormsModule,
         AppRoutingModule,
@@ -283,7 +309,30 @@ FullCalendarModule.registerPlugins([
         DocumentationComponent,
         IconsComponent,
         BlocksComponent,
-        BlockViewer
+        BlockViewer,
+        
+        
+        HeaderComponent,
+        HomeComponent,
+        FooterprojectComponent,
+        AboutComponent,
+        AppHowItWorksComponent,
+        ServicesComponent,
+        ContactComponent,
+        LogindemandeurComponent,
+        InscriptionComponent,
+        AccepteComponent,
+        RefuserComponent,
+        EnattenteComponent,
+        DemanderaparateurComponent,
+        ReparateurDetailsComponent,
+        DemandeServiceComponent,
+        LoginReparateurComponent,
+        CreercompteComponent,
+        EvaluationserviceComponent,
+        ListeContactComponent,
+        HistoriqueServiceComponent
+        
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
